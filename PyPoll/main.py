@@ -12,7 +12,7 @@ from unittest import result
 
 # Path to collect data from the Resources folder
 electiondata = os.path.join("Resources", "election_data.csv")
-# Path to output data into same folder
+# Path to output data into 'Analysis'folder
 election_resultscsv = os.path.join("Analysis", "election_results.txt")
 
 #create lists
@@ -31,12 +31,13 @@ with open(electiondata) as csvfile: #allow, so it can be prepared to store refer
     csvreader = csv.reader(csvfile, delimiter=",")
     #the first row is header, use next() to bypass header
     csv_header = next(csvreader)
+    #data = list(csvreader)
 
     #for loop to read data after header for each row 
     for row in csvreader:
         
         # Determine The total number of votes cast
-        totalvotes = sum(vote_counts.values())
+        totalvotes += 1
         candidate = row[2] #candidate is in index 2
 
         #for each candidate, add votes
